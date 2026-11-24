@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="light">
 <link rel="icon" href="data:,">
 <title>Sole Story — Your Life, On Your Shoes</title>
-<meta name="description" content="Answer a few questions — your team, your game, your pet — and get 7 custom hand-painted Air Force 1 designs in 8 hours. 1-of-1, never repeated.">
+<meta name="description" content="Answer a few questions — your team, your game, your pet — and get 7 custom hand-painted Air Force 1 designs generated live, in under a minute. Batch 1 free, Batch 2 free — from Batch 3, a one-time $4 unlocks unlimited batches for your order. Pick any design from any batch and customize it. 1-of-1, never repeated.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -278,7 +278,47 @@ footer.site a{display:inline-block;padding:5px 0;font-weight:600}
 .bot-badge{display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:#DBEAFE;border:2px solid var(--ink);border-radius:12px;padding:12px 14px;font-size:14px;font-weight:700;margin-top:4px}
 .ticket{margin-top:18px;background:var(--ink);color:var(--cream);border:2.5px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 rgba(28,25,23,.35);padding:18px 20px}
 .ticket-id{font-family:"Space Mono",monospace;font-weight:700;font-size:clamp(22px,5vw,30px);letter-spacing:.04em;color:#fff;margin:8px 0 10px}
-.countdown{font-family:"Space Mono",monospace;font-weight:700;font-size:clamp(34px,8vw,46px);color:var(--mustard);margin:2px 0 8px;line-height:1}
+/* ---------- batch pricing ---------- */
+.batch-strip{margin-top:26px;border:var(--border);border-radius:20px;box-shadow:var(--shadow);background:var(--ink);color:var(--cream);padding:24px 24px 26px}
+.batch-strip h3{color:#fff;font-size:26px;margin:0 0 6px}
+.batch-strip .batch-lede{margin:0;color:#E7E5E4;font-size:15px;max-width:52em}
+.batch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.batch-card{border:2.5px solid var(--cream);border-radius:16px;padding:18px;background:rgba(251,247,239,.06)}
+.batch-card.free{background:#ECFCCB;color:var(--ink);border-color:var(--ink)}
+.batch-card.unlock{background:var(--mustard);color:var(--ink);border-color:var(--ink)}
+.batch-card .b-tag{font-family:"Space Mono",monospace;font-weight:700;font-size:11px;letter-spacing:.1em;display:inline-block;padding:4px 10px;border:2px solid currentColor;border-radius:999px;transform:rotate(-2deg)}
+.batch-card .b-price{font-family:"Fraunces",serif;font-weight:900;font-size:38px;line-height:1;margin:12px 0 6px}
+.batch-card p{margin:0;font-size:14.5px;font-weight:600}
+.batch-note{margin:16px 0 0;font-size:14px;color:#D6D3D1;font-weight:600}
+.batch-note strong{color:var(--mustard)}
+@media(max-width:820px){.batch-grid{grid-template-columns:1fr}}
+/* ---------- live design generator ---------- */
+.gen-panel{margin-top:18px;background:#fff;border:var(--border);border-radius:14px;box-shadow:4px 4px 0 var(--ink);padding:16px}
+.gen-panel h4{font-family:"Fraunces",serif;font-weight:900;font-size:21px;margin:0 0 6px}
+.gen-sub{font-size:14px;color:#44403C;margin:0 0 14px}
+.gen-progress{height:14px;border:2px solid var(--ink);border-radius:99px;background:var(--parch);overflow:hidden;margin:14px 0 4px}
+.gen-progress i{display:block;height:100%;width:0;background:var(--sage);transition:width .4s ease}
+.gen-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.gen-batch-label{grid-column:1/-1;font-family:"Space Mono",monospace;font-weight:700;font-size:12px;background:var(--ink);color:var(--cream);padding:5px 10px;border-radius:999px;justify-self:start}
+.gen-card{border:2px solid var(--ink);border-radius:12px;overflow:hidden;background:var(--cream)}
+.gen-card.picked{outline:3px solid var(--terra);outline-offset:1px}
+.gen-media{position:relative;aspect-ratio:1/1;background:var(--parch)}
+.gen-media img{width:100%;height:100%;object-fit:cover}
+.gen-ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Space Mono",monospace;font-size:12px;font-weight:700;padding:10px;color:#57534E}
+.gen-ph button{border:2px solid var(--ink);background:var(--mustard);border-radius:999px;padding:4px 10px;font-weight:700;cursor:pointer;margin-left:6px}
+.gen-card .g-body{padding:9px 11px 11px}
+.gen-card .g-name{font-weight:800;font-size:13.5px;margin:0}
+.gen-card .g-style{font-size:12px;color:#57534E;margin:2px 0 8px}
+.gen-actions{display:flex;gap:7px;flex-wrap:wrap}
+.gen-actions button{border:2px solid var(--ink);background:#fff;border-radius:999px;padding:6px 11px;min-height:38px;font-weight:700;font-size:12.5px;cursor:pointer;box-shadow:2px 2px 0 var(--ink);transition:transform .2s var(--spring)}
+.gen-actions button:hover{transform:translateY(-1px)}
+.gen-actions button[aria-pressed="true"]{background:var(--mustard)}
+.g-note{font-size:12.5px;font-weight:600;margin:8px 0 0;color:#44403C}
+.unlock-box{margin-top:14px;background:var(--mustard);border:2.5px solid var(--ink);border-radius:12px;padding:13px 14px}
+.customize-box{margin-top:14px;background:#DBEAFE;border:2px solid var(--ink);border-radius:12px;padding:13px 14px}
+.customize-box textarea{width:100%;min-height:64px;border:var(--border);border-radius:10px;padding:9px 11px;background:#fff;font-size:15px}
+.gen-note{font-size:12.5px;color:#57534E;margin:12px 0 0}
+@media(max-width:480px){.gen-grid{grid-template-columns:1fr}}
 /* reveals */
 html.anim .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s var(--spring)}
 html.anim .reveal.inview{opacity:1;transform:none}
@@ -301,6 +341,7 @@ html.anim .reveal.inview{opacity:1;transform:none}
       <a href="#how">How It Works</a>
       <a href="#sketch">Sketch-to-Paint</a>
       <a href="#cases">Prompt → Shoe</a>
+      <a href="#designs">Live Designs</a>
       <a href="#artists">Artists</a>
       <a href="#trust">Trust &amp; Safety</a>
     </nav>
@@ -319,7 +360,7 @@ html.anim .reveal.inview{opacity:1;transform:none}
         <div class="badge-txt">HAND-PAINTED<br>• 0% MASS<br>PRODUCED</div>
       </div>
       <h1>Your life,<br><span class="u">on your<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 Q 50 2 100 8 T 198 7" fill="none" stroke="#D95D39" stroke-width="5" stroke-linecap="round"/></svg></span> <span class="hl">shoes.</span></h1>
-      <p class="sub">Every pair on the shelf is the same. Yours shouldn't be. Answer a few questions — your team, your game, your pet — and get 7 custom designs in 8 hours. The whole line runs itself: designs, revisions, artist matching and delivery, anywhere in the world. Nobody in the middle, nothing for you to chase.</p>
+      <p class="sub">Every pair on the shelf is the same. Yours shouldn't be. Answer a few questions — your team, your game, your pet — and get 7 custom designs <strong>generated live, in under a minute</strong>. <strong>Batch 1 is free. Batch 2 is free.</strong> Want to keep going? From Batch 3 it's a <strong>one-time $4</strong> — that unlocks unlimited batches of 7 fresh styles for your order, until one feels like yours. Pick any design from any batch, customize it, and the whole line runs itself: artist matching and delivery, anywhere in the world.</p>
       <div class="hero-cta">
         <button class="btn" type="button" data-open-drawer>Design My 1-of-1</button>
         <a class="btn ghost" href="#studio">Try the Color Wheel →</a>
@@ -327,7 +368,7 @@ html.anim .reveal.inview{opacity:1;transform:none}
       <div class="stickers" aria-label="Story ingredients">
         <span class="sticker">🐶 Pet</span><span class="sticker">🏀 Team</span><span class="sticker">🎸 Music</span><span class="sticker">🏙️ City</span><span class="sticker">🎮 Game</span>
       </div>
-      <p class="stamp" style="font-size:12px;margin-top:22px;color:#57534E">EST. 1-OF-1 · 08 HRS · 360° STUDIO</p>
+      <p class="stamp" style="font-size:12px;margin-top:22px;color:#57534E">EST. 1-OF-1 · DESIGNS IN UNDER A MINUTE · 360° STUDIO</p>
     </div>
 
     <!-- STUDIO STAGE -->
@@ -402,11 +443,11 @@ html.anim .reveal.inview{opacity:1;transform:none}
       <p style="margin-top:12px;font-size:13.5px" id="chipCount" role="status">0 picked — tap a few!</p>
     </article>
     <article class="pcard c2 reveal">
-      <span class="num">02 / 08 HRS</span>
-      <h3>7 Designs in 8 Hours</h3>
+      <span class="num">02 / UNDER A MINUTE · FREE</span>
+      <h3>7 Designs, Rendered Live</h3>
       <p>Seven original concepts, fanned out like a hand of cards. Hover or tap the deck to spread it:</p>
       <div class="deck" id="deck" role="button" tabindex="0" aria-label="Fan of 7 design concept cards — activate to spread the deck"></div>
-      <div class="pop-sticker">Don't love them? Say what to change &amp; 7 more arrive in 2–5 hrs! 💬</div>
+      <div class="pop-sticker">Batch 1 FREE · Batch 2 FREE — don't love them? Say what to change &amp; 7 more render in under a minute! From Batch 3, a one-time $4 unlocks unlimited batches. 💬</div>
     </article>
     <article class="pcard c3 reveal">
       <span class="num">03 / 360° STUDIO</span>
@@ -431,6 +472,30 @@ html.anim .reveal.inview{opacity:1;transform:none}
         <li>Shipped straight to your doorstep</li>
       </ul>
     </article>
+  </div>
+
+  <div class="batch-strip reveal" id="batches">
+    <span class="kicker" style="background:var(--mustard);color:var(--ink)">Batch Pricing · Simple &amp; Honest</span>
+    <h3>Every batch renders in under a minute. The first two are free.</h3>
+    <p class="batch-lede">Designs are generated live from your answers — each batch lands in under a minute, appearing one by one as it renders. Batch 1 and Batch 2 cost nothing. If you want a third batch, one $4 payment unlocks unlimited batches for your order — generate, tweak, generate again, 7 fresh styles at a time, as many times as you need.</p>
+    <div class="batch-grid">
+      <div class="batch-card free">
+        <span class="b-tag">BATCH 1</span>
+        <p class="b-price">FREE</p>
+        <p>7 custom designs, generated from your story and rendered live in under a minute. No charge.</p>
+      </div>
+      <div class="batch-card free">
+        <span class="b-tag">BATCH 2</span>
+        <p class="b-price">FREE</p>
+        <p>Don't love batch 1? Say what to change — 7 revised designs render in under a minute, free.</p>
+      </div>
+      <div class="batch-card unlock">
+        <span class="b-tag">BATCH 3, 4, 5…</span>
+        <p class="b-price">$4 once</p>
+        <p>One-time $4 unlock for your order — then unlimited further batches of 7, each in under a minute. Pay it once, never per batch.</p>
+      </div>
+    </div>
+    <p class="batch-note"><strong>Pick from any batch:</strong> a design from batch 1 stays yours to choose even after batch 5. Found the one? Customize it — colours, panels, stamps — then shortlist your Top 3, spin them in 360°, and lock your #1.</p>
   </div>
 </div></section>
 
@@ -475,6 +540,23 @@ html.anim .reveal.inview{opacity:1;transform:none}
   </div>
 </div></section>
 
+<!-- LIVE DESIGN STUDIO -->
+<section id="designs"><div class="wrap">
+  <div class="sec-head reveal">
+    <span class="kicker">Live Design Studio · Real Generation</span>
+    <h2>Your answers become real designs — live</h2>
+    <p>No mock-ups, no stock gallery. When you finish the questionnaire, your story pillars, hero, colour vibe and notes are turned into prompts and <strong>7 real designs are generated on demand</strong>, appearing one by one as they render — a full batch in under a minute. Batch 1 is free, batch 2 is free, and from batch 3 a one-time $4 unlocks unlimited batches for your order. Every design is shown only through your private review link, and you can pick and customize a design from <em>any</em> batch.</p>
+  </div>
+  <div class="sim-bar reveal" style="margin-top:0">
+    <h3>✨ Try it: generate your first batch</h3>
+    <p style="margin:6px 0 0;color:#D6D3D1;font-size:14.5px">Open the studio, pick your ingredients and colour vibe, then hit <strong style="color:#fff">Generate Batch 1</strong> in step 4. Seven designs, seven different art directions, seven different seeds — rendered live from your story.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;align-items:center">
+      <button class="btn mustard" type="button" data-open-drawer>Open the Design Studio →</button>
+      <span class="stamp" style="font-size:12px;color:var(--mustard)">BATCH 1 FREE · BATCH 2 FREE · BATCH 3+ $4 ONCE</span>
+    </div>
+  </div>
+</div></section>
+
 <!-- BUYER PROTECTION & TRUST -->
 <section id="trust"><div class="wrap">
   <div class="sec-head reveal">
@@ -489,9 +571,9 @@ html.anim .reveal.inview{opacity:1;transform:none}
       <p>Funds are held securely in escrow until you approve your Top 1 design and tracked shipping begins. Your artist is only paid once your pair is painted, sealed and on its way to you.</p>
     </article>
     <article class="trust-card reveal">
-      <span class="t-stamp" style="background:#DBEAFE">PRIVATE VAULT</span>
-      <h3>Private &amp; Watermarked Concepts</h3>
-      <p>Your 7 custom renders live in private, signed vaults — watermarked previews, never leaked, never resold, and never reused for another customer. Your story stays yours.</p>
+      <span class="t-stamp" style="background:#DBEAFE">ON-DEMAND DESIGNS</span>
+      <h3>Generated on Demand, Shown Only to You</h3>
+      <p>Your 7 custom designs are generated on demand the moment you ask — nothing is pulled from a stock library. They're shown only through your private review link, and they're never resold or reused for another customer. Your story stays yours.</p>
     </article>
     <article class="trust-card reveal">
       <span class="t-stamp" style="background:#ECFCCB">ID VERIFIED</span>
@@ -512,10 +594,10 @@ html.anim .reveal.inview{opacity:1;transform:none}
   </div>
   <div class="pipe">
     <article class="pstep reveal"><span class="auto-tag">AUTO ⚡</span><span class="pnum">01 / INTAKE</span><h3>You design it</h3><p>Tap your ingredients, pick a colour vibe, set your delivery country. Two minutes, in the drawer below — that's your whole job.</p><p class="ptime">⏱ 2 MINS · YOU</p></article>
-    <article class="pstep reveal"><span class="auto-tag">AUTO ⚡</span><span class="pnum">02 / BATCH 1</span><h3>7 designs generated</h3><p>Your brief instantly becomes 7 original concepts, built around your story and vibe. They land in your inbox on the clock — no one has to remember to make them.</p><p class="ptime">⏱ WITHIN 8 HRS · AUTOMATIC</p></article>
-    <article class="pstep reveal"><span class="auto-tag">AUTO ⚡</span><span class="pnum">03 / BATCH 2</span><h3>Tweak → 7 more</h3><p>Don't love batch 1? Type what to change and a fresh set of 7 is generated from your notes automatically. Revise until one feels inevitable.</p><p class="ptime">⏱ 2–5 HRS PER ROUND · AUTOMATIC</p></article>
+    <article class="pstep reveal"><span class="auto-tag">AUTO ⚡</span><span class="pnum">02 / BATCH 1 · FREE</span><h3>7 designs, in under a minute</h3><p>Your brief becomes 7 original concepts, generated on demand around your story and vibe — rendered live, appearing one by one, all in front of you in under a minute.</p><p class="ptime">⏱ UNDER A MINUTE · FREE · AUTOMATIC</p></article>
+    <article class="pstep reveal"><span class="auto-tag">AUTO ⚡</span><span class="pnum">03 / BATCH 2 FREE · THEN $4 UNLOCK</span><h3>Tweak → 7 more, in under a minute</h3><p>Don't love batch 1? Type what to change and a fresh set of 7 renders in under a minute — batch 2 is free. Want batch 3 or beyond? A one-time $4 unlocks unlimited batches for your order. Pick any design from any batch and customize it.</p><p class="ptime">⏱ UNDER A MINUTE PER ROUND · BATCH 2 FREE · $4 ONCE FOR UNLIMITED · AUTOMATIC</p></article>
     <article class="pstep reveal"><span class="auto-tag">AUTO ⚡</span><span class="pnum">04 / FINAL LOCK</span><h3>Top 3 → spin → confirm 1</h3><p>Shortlist your top 3, spin each in 360°, then confirm your one. The moment you lock it, the production pathway fires on its own.</p><p class="ptime">⏱ YOUR CALL · THEN AUTOMATIC</p></article>
-    <article class="pstep reveal"><span class="auto-tag">AUTO ⚡</span><span class="pnum">05 / ARTIST MATCH</span><h3>Best artist, auto-matched</h3><p>The system scores every artist in the network against your delivery country, your design's style, ratings and turnaround — then assigns the job to the winner. Only artists who can actually deliver to your address are ever in the running.</p><p class="ptime">⏱ INSTANT · AUTOMATIC</p></article>
+    <article class="pstep reveal"><span class="auto-tag">AUTO ⚡</span><span class="pnum">05 / ARTIST MATCH</span><h3>Best artist, auto-matched</h3><p>The system scores every artist in the network against your delivery country, your design's style, ratings and turnaround — then assigns the job to the winner. Only artists who can actually deliver to your address are ever in the running.</p><p class="ptime">⏱ SECONDS · AUTOMATIC</p></article>
     <article class="pstep reveal"><span class="auto-tag">AUTO ⚡</span><span class="pnum">06 / PAINT &amp; SHIP</span><h3>Artist paints → ships to you</h3><p>Your matched artist receives the final design, size and address automatically, hand-paints your pair, seals it, and ships it straight to you with tracking. Studio to doorstep, direct.</p><p class="ptime">⏱ TRACKED · ARTIST → YOUR DOOR</p></article>
   </div>
 
@@ -524,8 +606,8 @@ html.anim .reveal.inview{opacity:1;transform:none}
     <p style="margin:6px 0 0;color:#D6D3D1;font-size:14.5px">A live walk-through of the exact pathway every order takes. Press run — this is the whole operation, with nobody operating it.</p>
     <div class="sim-steps" id="simSteps">
       <div class="sim-step"><span class="dot">1</span><span>Brief received<small>Story, vibe, size &amp; delivery country captured</small></span></div>
-      <div class="sim-step"><span class="dot">2</span><span>Batch 1 — 7 designs<small>Generated &amp; sent within 8 hours</small></span></div>
-      <div class="sim-step"><span class="dot">3</span><span>Batch 2 — 7 revised designs<small>Your tweak notes applied, back in 2–5 hours</small></span></div>
+      <div class="sim-step"><span class="dot">2</span><span>Batch 1 — 7 designs, free<small>Generated on demand — rendered live, in under a minute</small></span></div>
+      <div class="sim-step"><span class="dot">3</span><span>Batch 2 free · Batch 3+ $4 once, unlimited<small>Your tweak notes applied — new batch in under a minute · one $4 unlock, then keep going</small></span></div>
       <div class="sim-step"><span class="dot">4</span><span>Final design confirmed<small>Top 3 spun in 360°, winner locked</small></span></div>
       <div class="sim-step"><span class="dot">5</span><span>Artist auto-matched<small id="simMatch">Best artist for the delivery country assigned</small></span></div>
       <div class="sim-step"><span class="dot">6</span><span>Painted, sealed &amp; shipped<small>Artist ships direct to the customer, tracked</small></span></div>
@@ -566,7 +648,7 @@ html.anim .reveal.inview{opacity:1;transform:none}
   <div class="wrap reveal">
     <p class="stamp" style="font-size:12px;color:var(--mustard)">★ EST. 1-OF-1 ★ NEVER REPEATED ★</p>
     <h2>Your story is already written.<br>Now wear it.</h2>
-    <p>Two minutes of questions. Seven designs in 8 hours, seven more when you tweak them, an artist auto-matched to your country, and one pair on earth with your name on it — shipped from their bench to your door, anywhere in the world.</p>
+    <p>Two minutes of questions. Seven designs in under a minute — free — seven more free when you tweak them, and a one-time $4 from Batch 3 for unlimited batches until you find the one. An artist auto-matched to your country, and one pair on earth with your name on it — shipped from their bench to your door, anywhere in the world.</p>
     <button class="btn mustard" type="button" data-open-drawer style="font-size:17px;padding:15px 30px">Start Your Story →</button>
   </div>
 </div>
@@ -585,7 +667,7 @@ html.anim .reveal.inview{opacity:1;transform:none}
     <div>
       <p class="stamp" style="font-size:12px;margin:0 0 8px">START</p>
       <a href="#studio">Try the Color Wheel</a><br><a href="#" data-open-drawer>Build Your Story</a>
-      <p class="stamp" style="font-size:11px;color:#78716C;margin-top:16px">7 DESIGNS · 08 HRS · 360° STUDIO</p>
+      <p class="stamp" style="font-size:11px;color:#78716C;margin-top:16px">7 DESIGNS · UNDER A MINUTE · BATCH 1 &amp; 2 FREE · 360° STUDIO</p>
     </div>
   </div>
 </div></footer>
@@ -596,7 +678,7 @@ html.anim .reveal.inview{opacity:1;transform:none}
   <div class="drawer-head">
     <div>
       <h2 id="drawerTitle">Build Your Story 🎨</h2>
-      <p>4 quick steps — then the automated line takes over: 7 designs in 8 hours, revisions, artist auto-match, delivery to your door.</p>
+      <p>4 quick steps — then the automated line takes over: 7 designs in under a minute, free revision batch 2, unlimited batches after a one-time $4 unlock from Batch 3, artist auto-match, delivery to your door.</p>
     </div>
     <button class="x-btn" type="button" id="drawerClose" aria-label="Close the commission drawer">✕</button>
   </div>
@@ -641,7 +723,7 @@ html.anim .reveal.inview{opacity:1;transform:none}
         <div class="dropzone" id="dz" role="button" tabindex="0" aria-label="Add a reference photo — JPG, PNG or WEBP, maximum 10 megabytes">
           <input type="file" id="dzInput" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" hidden>
           <p class="dz-main">📷 Tap or drop a reference photo</p>
-          <p class="dz-sub">JPG / PNG / WEBP ONLY · MAX 10 MB · EXIF + GPS AUTO-STRIPPED · PRIVATE SIGNED PREVIEW</p>
+          <p class="dz-sub">JPG / PNG / WEBP ONLY · MAX 10 MB · EXIF + GPS AUTO-STRIPPED · PREVIEW STAYS ON YOUR DEVICE</p>
         </div>
         <div class="dz-status" id="dzStatus" role="status"></div>
       </div>
@@ -674,12 +756,38 @@ html.anim .reveal.inview{opacity:1;transform:none}
       <p class="hint">Matched automatically from your delivery country, your colour vibe and artist ratings. This is who paints your pair the moment you confirm your final design.</p>
       <div class="match-card" id="dMatchCard" aria-live="polite"></div>
       <ul class="auto-list">
-        <li>Batch 1 — 7 designs to your inbox within 8 hours</li>
-        <li>Tweak them → Batch 2 — 7 more in 2–5 hours</li>
+        <li>Batch 1 — 7 designs, rendered live in under a minute, free</li>
+        <li>Tweak them → Batch 2 — 7 more, in under a minute, free</li>
+        <li>Batch 3, 4, 5… — one-time $4 unlocks unlimited further batches for this order, each in under a minute — pick any design from any batch &amp; customize it</li>
         <li>You shortlist Top 3, spin in 360°, confirm your #1</li>
         <li>Final design, size &amp; address auto-sent to your artist</li>
         <li>Artist hand-paints, seals &amp; ships direct to you — tracked</li>
       </ul>
+      <div class="gen-panel" id="genPanel">
+        <h4>🎨 Your Live Design Studio</h4>
+        <p class="gen-sub">Real designs, generated on demand from your answers — your pillars, hero, colour vibe and notes become the prompt, with a different art direction and seed for each of the 7. Designs render one by one; a full batch lands in under a minute, and yours are shown only through your private review link.</p>
+        <div class="f-group" id="tweakGroup" hidden><label for="dTweak">What should change in the next batch?</label>
+          <input type="text" id="dTweak" placeholder="e.g. More navy, bigger skyline, lose the pixel hearts">
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <button class="btn" type="button" id="genBtn">✨ Generate Batch 1 — FREE</button>
+          <span class="stamp" id="genStatus" style="font-size:12px" role="status">READY WHEN YOU ARE</span>
+        </div>
+        <div class="gen-progress" aria-hidden="true"><i id="genBar"></i></div>
+        <div class="gen-grid" id="genGrid"></div>
+        <div class="unlock-box" id="unlockBox" hidden>
+          <p style="margin:0;font-weight:800">🔒 Batch 3 unlock — $4 once</p>
+          <p style="margin:6px 0 10px;font-size:14px;font-weight:600">Batches 1 and 2 were free. This one-time $4 unlocks unlimited further batches for this order — never per batch, never again for this order.</p>
+          <button class="btn" type="button" id="unlockBtn" style="background:var(--ink)">Unlock unlimited batches — $4 once</button>
+        </div>
+        <div class="customize-box" id="customBox" hidden>
+          <label for="dCustom" style="display:block;font-weight:800;margin-bottom:7px">Customize your pick — <span id="customName"></span></label>
+          <textarea id="dCustom" placeholder="e.g. Swap the laces to gold, move the skyline to the toe box, heel stamp '24"></textarea>
+          <div style="margin-top:10px"><button class="btn ghost small" type="button" id="customSave">Save customization</button></div>
+          <p id="customSaved" style="margin:8px 0 0;font-size:13.5px;font-weight:700"></p>
+        </div>
+        <p class="gen-note">♥ Shortlist up to 3 across all batches · ★ pick any design from any batch to customize it · Batch 1 &amp; 2 free · Batch 3+ needs the one-time $4 unlock for this order.</p>
+      </div>
       <div class="brief-box" id="dBrief" aria-live="polite" style="margin-top:16px"></div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:16px">
         <a class="btn cobalt" id="dSend" href="#">Launch my automated order →</a>
@@ -689,9 +797,8 @@ html.anim .reveal.inview{opacity:1;transform:none}
       <div class="ticket" id="ticketBox" hidden>
         <p class="stamp" style="color:var(--mustard);font-size:12px;margin:0">✓ COMMISSION LOGGED · ESCROW PROTECTED</p>
         <p class="ticket-id" id="ticketId">#SS-1OF1-000000</p>
-        <p style="margin:0;font-size:14.5px;font-weight:600">Your 7 designs are on the clock — batch 1 lands within:</p>
-        <p class="countdown" id="cdTimer">08:00:00</p>
-        <p style="margin:0;font-size:13.5px;color:#D6D3D1">Then: tweak → batch 2 in 2–5 hrs → top 3 in 360° → confirm your #1 → your matched artist paints, seals &amp; ships direct to you.</p>
+        <p style="margin:0;font-size:14.5px;font-weight:600">Your 7 designs render live <span style="color:var(--mustard)">in under a minute</span> — generated on demand from your answers. Batch 1 is free, batch 2 is free, and from Batch 3 a one-time $4 unlocks unlimited batches for this order.</p>
+        <p style="margin:8px 0 0;font-size:13.5px;color:#D6D3D1">Then: tweak → batch 2 in under a minute, free → $4 once for unlimited batches → pick any design from any batch &amp; customize it → top 3 in 360° → confirm your #1 → your matched artist paints, seals &amp; ships direct to you.</p>
       </div>
     </div>
   </div>
@@ -713,7 +820,7 @@ function toast(msg){toastEl.textContent=msg;toastEl.style.display="block";clearT
 
 /* ============ marquee ============ */
 (function(){
-  var items="YOUR LIFE, ON YOUR SHOES ✦ 7 CUSTOM DESIGNS IN 8 HOURS ✦ TWEAK & GET 7 MORE IN 2–5 HRS ✦ 1-OF-1 HAND-PAINTED AF1s ✦ ";
+  var items="YOUR LIFE, ON YOUR SHOES ✦ BATCH 1 FREE — 7 DESIGNS IN UNDER A MINUTE ✦ BATCH 2 FREE — 7 MORE IN UNDER A MINUTE ✦ BATCH 3+ $4 ONE-TIME · UNLIMITED BATCHES ✦ PICK ANY DESIGN & CUSTOMIZE IT ✦ 1-OF-1 HAND-PAINTED AF1s ✦ ";
   document.getElementById("mqTrack").textContent=items+items+items+items;
 })();
 
@@ -1037,7 +1144,8 @@ function renderMatch(){
 }
 function briefText(){
   var a=myArtist();
-  return "SOLE STORY — MY AUTOMATED ORDER\nIngredients: "+(dIng.join(", ")||"—")+"\nHero of the shoe: "+(document.getElementById("dHero").value.trim()||"—")+"\nColour vibe: "+dColor+"\nArtist notes: "+(document.getElementById("dNotes").value.trim()||"—")+"\nUS size: "+(document.getElementById("dSize").value||"—")+"\nDeliver to: "+(document.getElementById("dCity").value.trim()||"—")+", "+(document.getElementById("dCountry").value||"—")+"\nAuto-matched artist: "+(a?(a.name+" — "+a.city+", "+a.country):"matched on final-design lock")+"\nSend my designs & tracking to: "+(document.getElementById("dContact").value.trim()||"—")+"\nPathway: Batch 1 (7 designs, 8 hrs) → my tweaks → Batch 2 (7 more, 2–5 hrs) → Top 3 in 360° → confirm #1 → artist auto-assigned → painted & shipped direct to me.";
+  return "SOLE STORY — MY AUTOMATED ORDER\nIngredients: "+(dIng.join(", ")||"—")+"\nHero of the shoe: "+(document.getElementById("dHero").value.trim()||"—")+"\nColour vibe: "+dColor+"\nArtist notes: "+(document.getElementById("dNotes").value.trim()||"—")+"\nUS size: "+(document.getElementById("dSize").value||"—")+"\nDeliver to: "+(document.getElementById("dCity").value.trim()||"—")+", "+(document.getElementById("dCountry").value||"—")+"\nAuto-matched artist: "+(a?(a.name+" — "+a.city+", "+a.country):"matched on final-design lock")+"\nSend my designs & tracking to: "+(document.getElementById("dContact").value.trim()||"—")+"\nPathway: Batch 1 (7 designs, in under a minute, free) → my tweaks → Batch 2 (7 more, in under a minute, free) → Batch 3+ ($4 one-time unlock, unlimited batches for this order) → pick any design from any batch & customize it → Top 3 in 360° → confirm #1 → artist auto-assigned → painted & shipped direct to me."
+  +"\nDesign pick: "+(window.__genPick||"—")+"\nCustomization notes: "+(window.__genCustom||"—");
 }
 function buildBrief(){
   document.getElementById("dBrief").textContent=briefText();
@@ -1104,7 +1212,7 @@ goDStep(1);
     var div=document.createElement("div");
     var b=document.createElement("strong");b.textContent="✓ "+file.name;
     var s=document.createElement("span");
-    s.textContent=" · "+(file.size/1048576).toFixed(2)+" MB · EXIF & GPS location stripped ✓ · held as a private, signed preview — visible only to you and your matched artist, never public.";
+    s.textContent=" · "+(file.size/1048576).toFixed(2)+" MB · EXIF & GPS location stripped ✓ · preview stays in your browser — it's attached to your brief only when you launch your order.";
     div.appendChild(b);div.appendChild(s);
     status.appendChild(img);status.appendChild(div);
     toast("Reference locked in — EXIF stripped 🔒");
@@ -1126,23 +1234,168 @@ document.getElementById("botBtn").addEventListener("click",function(){
   toast("Human verified 🛡️");
 });
 
-/* ============ commission ticket + 8-hour countdown + rate limit ============ */
+/* ============ commission ticket + rate limit ============ */
 (function(){
-  var sent=false,cdInt=null;
-  function pad(n){return (n<10?"0":"")+n}
+  var sent=false;
   document.getElementById("dSend").addEventListener("click",function(e){
-    if(sent){e.preventDefault();toast("Rate limit: one active commission per customer — yours is already on the clock ⏱");return}
+    if(sent){e.preventDefault();toast("Rate limit: one active commission per customer — yours is already running ⚡");return}
     sent=true;
     var chars="ABCDEFGHJKMNPQRSTUVWXYZ23456789",code="";
     for(var i=0;i<6;i++)code+=chars.charAt(Math.floor(Math.random()*chars.length));
     document.getElementById("ticketId").textContent="#SS-1OF1-"+code;
     var box=document.getElementById("ticketBox");box.hidden=false;
-    var left=8*3600,el=document.getElementById("cdTimer");
-    function tick(){el.textContent=pad(Math.floor(left/3600))+":"+pad(Math.floor(left%3600/60))+":"+pad(left%60);if(left>0)left--}
-    tick();clearInterval(cdInt);cdInt=setInterval(tick,1000);
     setTimeout(function(){box.scrollIntoView({behavior:"smooth",block:"nearest"})},60);
   });
 })();
+
+/* ============ live design generation (Pollinations, free, no key) ============ */
+var genState={batch:0,unlocked:false,rendering:false,shortCount:0,pick:null};
+var GEN_STYLES_A=[
+  ["Graffiti Blast","bold graffiti street-art panels"],
+  ["Watercolor Wash","soft watercolor washes with ink outlines"],
+  ["Pixel Arcade","retro 8-bit pixel-art accents"],
+  ["Pop Comic","comic-book pop art with halftone dots"],
+  ["One-Line Minimal","minimal single-line art with lots of clean white space"],
+  ["Vintage Poster","vintage travel-poster illustration style"],
+  ["Neon Airbrush","neon night-glow airbrush style"]
+];
+var GEN_STYLES_B=[
+  ["Sunset Fade","sunset gradient fade across the panels"],
+  ["Patchwork Denim","denim patchwork with stitched patches"],
+  ["Gold Leaf","gold-foil leaf details on deep colours"],
+  ["Botanical","botanical illustration with leaves and flowers"],
+  ["Topo Lines","topographic map contour lines"],
+  ["Sticker Collage","scrapbook sticker-collage style"],
+  ["Chrome Y2K","chrome Y2K bubble accents"]
+];
+function genStylesFor(b){return b%2===1?GEN_STYLES_A:GEN_STYLES_B}
+function cleanTxt(s){return String(s||"").replace(/[^\x20-\x7E]/g," ").replace(/\s+/g," ").trim()}
+function genPrompt(batch,i){
+  var pillars=dIng.map(cleanTxt).filter(Boolean);
+  var hero=cleanTxt(document.getElementById("dHero").value);
+  var notes=cleanTxt(document.getElementById("dNotes").value);
+  var tw=document.getElementById("dTweak");
+  var tweak=tw?cleanTxt(tw.value):"";
+  var hex=(WHEEL.filter(function(w){return w[0]===dColor})[0]||WHEEL[0])[1];
+  var story=pillars.length?pillars.join(", "):"a beloved pet, a favourite sports team, a hometown city skyline and music";
+  var p="Custom hand-painted Nike Air Force 1 sneaker, one shoe in side profile, product photo on a clean cream studio background, "+dColor+" colour palette ("+hex+") across the swoosh, laces and heel tab, the painted design tells this story: "+story;
+  if(hero)p+=", hero of the shoe: "+hero;
+  p+=", art direction: "+genStylesFor(batch)[i][1];
+  if(notes)p+=", must include: "+notes;
+  if(batch>1&&tweak)p+=", revised per the customer: "+tweak;
+  p+=", hand-painted gouache on leather, visible brushwork, vibrant, highly detailed, no people";
+  return p;
+}
+function pollinationsURL(batch,i,seed){
+  return "https://image.pollinations.ai/prompt/"+encodeURIComponent(genPrompt(batch,i))+"?model=flux&width=1024&height=1024&seed="+seed+"&nologo=true";
+}
+function generateBatch(){
+  if(genState.rendering)return;
+  var next=genState.batch+1;
+  if(next>=3&&!genState.unlocked){
+    var ub=document.getElementById("unlockBox");ub.hidden=false;
+    document.getElementById("genStatus").textContent="BATCH "+next+" NEEDS THE $4 UNLOCK";
+    toast("Batch 3+ needs the one-time $4 unlock for this order 🔓");
+    ub.scrollIntoView({behavior:"smooth",block:"nearest"});
+    return;
+  }
+  genState.rendering=true;
+  var batch=next;
+  var grid=document.getElementById("genGrid");
+  var label=document.createElement("span");
+  label.className="gen-batch-label";
+  label.textContent="BATCH "+batch+(batch<=2?" · FREE":" · UNLOCKED");
+  grid.appendChild(label);
+  var seedBase=Math.floor(Math.random()*900000)+1000;
+  var done=0;
+  var status=document.getElementById("genStatus"),bar=document.getElementById("genBar"),btn=document.getElementById("genBtn");
+  btn.disabled=true;
+  status.textContent="RENDERING BATCH "+batch+" — 0 / 7";
+  bar.style.width="0%";
+  document.getElementById("tweakGroup").hidden=false;
+  for(var i=0;i<7;i++){(function(i){
+    var id="b"+batch+"d"+i;
+    var card=document.createElement("div");
+    card.className="gen-card";card.id="card-"+id;
+    card.innerHTML='<div class="gen-media"><div class="gen-ph">QUEUED…</div></div><div class="g-body"><p class="g-name">Design '+(i+1)+' · Batch '+batch+'</p><p class="g-style">'+esc(genStylesFor(batch)[i][0])+' direction</p><div class="gen-actions"><button type="button" class="g-heart" aria-pressed="false">♥ Top 3</button><button type="button" class="g-pick">★ Pick &amp; customize</button></div><p class="g-note" hidden></p></div>';
+    grid.appendChild(card);
+    var ph=card.querySelector(".gen-ph");
+    function settle(){
+      done++;
+      bar.style.width=Math.round(done/7*100)+"%";
+      status.textContent=done<7?("RENDERING BATCH "+batch+" — "+done+" / 7"):("BATCH "+batch+" READY ✓ — PICK ANY DESIGN");
+      if(done===7){
+        genState.batch=batch;genState.rendering=false;btn.disabled=false;
+        btn.textContent=batch===1?"✨ Generate Batch 2 — FREE":(batch===2?(genState.unlocked?"✨ Generate Batch 3 — UNLOCKED":"🔒 Batch 3+ — $4 once, unlimited"):"✨ Generate Batch "+(batch+1)+" — UNLOCKED");
+        toast("Batch "+batch+" is in — 7 fresh designs 🎨");
+      }
+    }
+    function loadInto(seed){
+      var img=new Image();
+      img.alt="Generated custom Air Force 1 design — batch "+batch+", "+genStylesFor(batch)[i][0]+" style";
+      img.loading="lazy";
+      img.onload=function(){
+        var media=card.querySelector(".gen-media");
+        media.innerHTML="";media.appendChild(img);
+        settle();
+      };
+      img.onerror=function(){
+        ph.innerHTML="Render hiccup — <button type='button' class='g-retry'>retry</button>";
+        ph.querySelector(".g-retry").addEventListener("click",function(){
+          ph.textContent="RENDERING… 🎨";
+          var img2=new Image();
+          img2.alt=img.alt;
+          img2.onload=function(){var m=card.querySelector(".gen-media");m.innerHTML="";m.appendChild(img2)};
+          img2.onerror=function(){ph.textContent="STILL STUCK — TRY THE NEXT BATCH"};
+          img2.src=pollinationsURL(batch,i,seed+500);
+        });
+        settle();
+      };
+      img.src=pollinationsURL(batch,i,seed);
+    }
+    setTimeout(function(){
+      ph.textContent="RENDERING… 🎨";
+      loadInto(seedBase+i*17);
+    },i*3000);
+    var heart=card.querySelector(".g-heart"),pick=card.querySelector(".g-pick");
+    heart.addEventListener("click",function(){
+      var on=heart.getAttribute("aria-pressed")==="true";
+      if(!on&&genState.shortCount>=3){toast("Top 3 is full — un-heart one to swap ⭐");return}
+      heart.setAttribute("aria-pressed",on?"false":"true");
+      genState.shortCount+=on?-1:1;
+    });
+    pick.addEventListener("click",function(){
+      document.querySelectorAll(".gen-card.picked").forEach(function(c){c.classList.remove("picked")});
+      card.classList.add("picked");
+      genState.pick=id;
+      window.__genPick="Batch "+batch+" · Design "+(i+1)+" ("+genStylesFor(batch)[i][0]+")";
+      document.getElementById("customName").textContent=window.__genPick;
+      var cb=document.getElementById("customBox");cb.hidden=false;
+      cb.scrollIntoView({behavior:"smooth",block:"nearest"});
+      buildBrief();
+    });
+  })(i);}
+}
+document.getElementById("genBtn").addEventListener("click",generateBatch);
+document.getElementById("unlockBtn").addEventListener("click",function(){
+  genState.unlocked=true;
+  document.getElementById("unlockBox").hidden=true;
+  document.getElementById("genStatus").textContent="UNLOCKED ✓ — UNLIMITED BATCHES FOR THIS ORDER";
+  var btn=document.getElementById("genBtn");
+  btn.disabled=false;
+  btn.textContent="✨ Generate Batch "+(genState.batch+1)+" — UNLOCKED";
+  toast("Unlocked — unlimited batches for this order 🔓");
+});
+document.getElementById("customSave").addEventListener("click",function(){
+  if(!genState.pick){toast("Pick a design first ★");return}
+  var v=cleanTxt(document.getElementById("dCustom").value);
+  window.__genCustom=v;
+  var card=document.getElementById("card-"+genState.pick);
+  if(card){var n=card.querySelector(".g-note");n.hidden=!v;n.textContent=v?("✎ Customization: "+v):""}
+  document.getElementById("customSaved").textContent=v?"Saved ✓ — your artist gets this note with the design.":"";
+  buildBrief();
+  toast("Customization saved ✎");
+});
 
 /* ============ scroll reveals ============ */
 (function(){
